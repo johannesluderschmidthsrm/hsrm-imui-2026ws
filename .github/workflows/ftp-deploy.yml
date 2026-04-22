@@ -13,7 +13,7 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        server: w01c627a.kasserver.com
+        server: ${{ secrets.FTP_SERVER }}
         server-dir: /
-        username: f0184082
+        username: ${{ secrets.FTP_USER }}
         password: ${{ secrets.FTP_PWD }}
