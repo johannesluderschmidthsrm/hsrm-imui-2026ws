@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="_assets/favicon.png" type="image/ico">
+    <link rel="icon" href="_assets/favicon.svg" type="image/svg+xml">
+    <title>Checkliste KimPim Qualitätssicherung</title>
+
+    <style>
+        @import url('_assets/base.css');
+
+        body {
+            line-height: 1.2;
+            color: var(--dark);
+        }
+
+        main {
+            max-width: 40em;
+            padding: 1em;
+            margin: 0 auto;
+        }
+
+        u{
+            text-decoration-color: var(--tertiary);
+            text-decoration-thickness: .1em;
+        }
+
+        ul.checklist {
+            padding: 0 0 0 2em;
+
+            >li {
+                margin: 2em 0;
+                list-style: none;
+                position: relative;
+                font-weight: 600;
+
+                [type="checkbox"] {
+                    position: absolute;
+                    display: block;
+                    right: calc(100% + .6em);
+                    top: -.2em;
+
+                    appearance: none;
+                    -webkit-appearance: none;
+                    cursor: pointer;
+
+                    color: var(--white);
+                    border-radius: .3em;
+                    padding: .3em;
+
+                    display: flex;
+                    align-content: center;
+                    justify-content: center;
+                    background-color: var(--tertiary);
+                    width: 2em;
+                    aspect-ratio: 1 / 1;
+
+                    text-align: center;
+                    font-size: .6em;
+                    font-weight: bold;
+
+                    &::before {
+                        content: '✘';
+                    }
+
+                    &:not(:checked) {
+                        &:hover {
+                            background-color: var(--dark);
+                        }
+                    }
+
+                    &:checked {
+                        background-color: var(--secondary);
+
+                        &::before {
+                            content: '✔';
+                        }
+                    }
+                }
+
+                small {
+                    display: block;
+                    font-size: 1em;
+                    font-weight: 400;
+                    margin: .5em 0;
+                }
+
+                ul {
+                    list-style-type: none;
+                    padding-left: 1.4em;
+
+                    &>li {
+                        position: relative;
+
+                        &::before {
+                            position: absolute;
+                        right: calc(100% + .5em);
+                            content: '➜';
+                            color: var(--tertiary)
+                        }
+                    }
+                }
+            }
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: var(--light);
+            font-weight: bold;
+            padding: .1em .5em;
+            border-radius: .3em;
+            display: inline;
+        }
+
+        .btn {
+            border: none;
+            padding: .16em .4em;
+            background-color: var(--dark);
+            color: var(--white);
+            font-size: 1em;
+            padding: .7em 1em;
+            border-radius: .6em;
+            cursor: pointer;
+            line-height: 1;
+
+            &:hover {
+                background-color: var(--secondary);
+            }
+        }
+
+        .btn-light {
+            background-color: var(--tertiary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <form id="CheckList">
+            <h1 class="atx" id="checkliste-kimpim-qualitatssicherung">Checkliste KimPim Qualitätssicherung</h1>
+            <ul class="checklist">
+                <li class="task-list-item"><input type="checkbox" name="index">HTML-Seite heißt
+                    <code>&lt;index.html&gt;</code>?<small>
+                    </small>
+                </li>
+                <li class="task-list-item"><input type="checkbox" name="cleanup">HTML, CSS, JS-Code
+                    aufgeräumt?<small>Unnötige Fragmente und Kommentare entfernen.
+                        Klassen, die nicht angewendet werden, entfernen.
+                        Nicht verwendete Libaries, Schriften und Scripte entfernen. Sinnvolle Umbrüche. In CSS sollte
+                        zusammengehöriges auch zusammen stehen.
+                    </small></li>
+                <li class="task-list-item"><input type="checkbox" name="cleanupfiles">Dateien aufgeräumt?
+                    <small>Nicht verwendete Bilder und Testdateien entfernen!
+                        Im Ordner sollten nur die auch wirklich in der Website verwendeten Dateien sowie die Git-Dateien
+                        (z.B. <code>.git</code>, <code>.github</code> und <code>.gitignore</code>) liegen.</small>
+                </li>
+                </small></li>
+                <li class="task-list-item"><input type="checkbox" name="validate">
+                    Code im W3C Validator geprüft und alle Fehler beseitigt?<small>
+                        Ggf. <a href="https://marketplace.visualstudio.com/items?itemName=CelianRiboulet.webvalidator"
+                            target="_blank">VS-Code-Plugin</a> verwenden.<br> Fehlermeldungen wegen verschachtelten CSS
+                        sollen ignoriert werden!<br>uiKit-HTML-Attributte von <code>uk-...</code> in <code>data-uk-...</code> umbenennen.
+                    </small></li>
+                <li class="task-list-item"><input type="checkbox" name="h1">
+                    Nur eine <code>&lt;h1&gt;</code> auf der Seite?<small>
+                        Die Hauptabschnitte sollten eine <code>&lt;h2&gt;</code> haben, die darunter eine
+                        <code>&lt;h3&gt;</code>, usw.
+                    </small></li>
+                <li class="task-list-item"><input type="checkbox" name="ids">
+                    Alle Ids nur jeweils einmal auf der Seite verwendet? Alle Id-Namen ohne Leerzeichen und Sonderzeichen?<small>
+                        Ggf. Suchfunktion verwenden
+                    </small></li>
+                <li class="task-list-item"><input type="checkbox" name="alt">
+                    Bei Allen Bildern sinnvolle <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/alt#usage_notes"
+                        target="_blank">alt-Attribute</a> gesetzt?<small>
+                    </small></li>
+                <li class="task-list-item"><input type="checkbox" name="inlinestyles">
+                    Keine Inlinestyles im HTML-Code?<small>
+                    </small><small>Einzige Ausnahme: Hintergrundbilder bzw. Farben, die nur ein einziges Mal vorkommen.</small>
+                </li>
+                <li class="task-list-item"><input type="checkbox" name="einbindung">
+                    CSS-Einbindung im <code>&lt;head&gt;</code>, JavaScript-Einbindungen gesammelt vor dem
+                    <code>&lt;body&gt;</code>?<small>
+                        Keine Doppeleinbindungen (z.B. jeweils nur eine Version von jQuery und UIkit)
+                    </small>
+                </li>
+                <li class="task-list-item"><input type="checkbox" name="bildformate">
+                    Passende Web-Bildformate verwendet?<small>
+                        <ul>
+                            <li>SVG für Logos, Icons und andere Vektorgrafiken</li>
+                            <li>JPG oder WebP für Photos</li>
+                            <li>PNG bzw. <a href="https://cloudconvert.com/png-to-webp" target="_blank">WebP</a> (bessere Kompimierung) für Bilder mit Transparenz</li>
+                        </ul>
+                    </small></li>
+                <li class="task-list-item"><input type="checkbox" name="bilder">
+                    Alle Bilder runtergrechnet und komprimiert?<small>
+                        Pixelabmessungen maximal so groß wie die größte Anzeigegröße. Große Bilder max. 2560px Breite.
+                        Keine Bilder über 1MB! Wenn wir trotz aller Hinweise immer noch solche Riesenbilder in ihren Daten finden gibt das Punktabzug!
+                    </small></li>
+                <li class="task-list-item"><input type="checkbox" name="webfonts">
+                    Alle Schriften als Webfonts eingebettet?<small>Die Einbindung sollte mittels <code>@import</code>
+                        oder <code>@font-face</code> am Anfang der CSS-Datei geschehen, nicht in HTML
+                    </small></li>
+                <li class="task-list-item"><input type="checkbox" name="fallbackfont">
+                    Bei font-family in CSS immer einen Fallback-Font angegeben (z.B. sans-serif)?<small>
+                    </small></li>
+                <li class="task-list-item"><input type="checkbox" name="versal">
+                    Keine Texte in Großbuchstaben im HTML-Quelltext?<small>
+                        Versalschrift sollte immer mit CSS (<code>text-transform:uppercase</code>) erzeugt
+                        werden</small>
+                </li>
+                <li class="task-list-item"><input type="checkbox" name="github">
+                    Code erfolgreich auf Github gepushed?<small>
+                        Grüner Haken in den Github Actions? Oder gibt es dort <u>beim letzten Commit</u> einen Fehler?<br>
+                        Bei Problemen bitte melden!
+                    </small></li>
+                <li class="task-list-item"><input type="checkbox" name="testserver">
+                    Website auf <a href="https://kimpim:pimkim@im24ss.rheinmain-interaktiv.de/" target="_blank">dem
+                        Testserver</a> getestet?<small>
+                    </small></li>
+                <li class="task-list-item"><input type="checkbox" name="testsmartphone">
+                    Auch auf dem Smartphone?<small>
+                        Funktionieren alle Hover-Funktionen on Tab?
+                    </small></li>
+                <li class="task-list-item"><input type="checkbox" name="textbrowser">
+                    Website auf <a href="https://www.google.com/intl/de/chrome/" target="_blank">Chrome</a> und <a
+                        href="https://www.mozilla.org/de/firefox/new/" target="_blank">Firefox</a> getestet?<small>In
+                        diesen Browsern findet die Präsentation und Bewertung statt.
+                    </small></li>
+                <li class="task-list-item"><input type="checkbox" name="konsole">
+                    Gibt es in der Browser Konsole JavaScript-Fehler?<small>Fehler müssen alle korrigiert werden,
+                        Warnungen sind tolerierbar.</small></li>
+                <li class="task-list-item"><input type="checkbox" name="ladefehler">
+                    Gibt es im Netzwerkpanel Ladefehler?<small>
+                    </small></li>
+                <li class="task-list-item"><input type="checkbox" name="testauflösungen">
+                    Website auf unterschiedlichen Auflösungen und Endgeräte getestet?<small>
+                        Beamer im Präsentationsraum hat vermutlich die Auflösung 1920*1200px. Auch eine
+                        Smartphone-Ansichts sollte präsentiert werden.
+                    </small></li>
+                <li class="task-list-item"><input type="checkbox" name="hoizontalesscrollen">
+                    Taucht ungewolltes horizontales Scrollen auf?<small>
+                        Falls ja: In den Dev-Tools durch abschnittsweise Sections entfernen bis der Verursacher gefunden
+                        wurde und dann ggf. mit <code>overflow:hidden;</code> reparieren.
+                    </small></li>
+                <li class="task-list-item"><input type="checkbox" name="beipackzeittel">
+                    Beipackzettel verfassen und in der <code>readme.md</code> im Git-Ordner speichern:<small>
+                        Welcher Fremdcode wurde verwendet (Link Quelle)?
+                        Welche fremden Bilder, Videos oder Texte?
+                    </small></li>
+            </ul>
+            <input class="btn btn-light" type="reset" value="CheckListe zurücksetzen">
+        </form>
+    </main>
+
+
+    <script>
+        (function () {
+            // Automatically store form status locally
+
+            const $form = document.getElementById('CheckList');
+
+            // Function to save form data to localStorage
+            function saveFormData() {
+                console.log("store form");
+                for (let i = 0; i < $form.elements.length; i++) {
+                    const element = $form.elements[i];
+                    if (element.type !== 'button' && element.type !== 'reset') {
+                        if (element.type === 'checkbox' || element.type === 'radio') {
+                            localStorage.setItem(element.name + '_' + element.value, element.checked);
+                        } else {
+                            localStorage.setItem(element.name, element.value);
+                        }
+                    }
+                }
+            }
+
+            // Function to load form data from localStorage
+            function loadFormData() {
+                console.log("load form");
+
+                for (let i = 0; i < $form.elements.length; i++) {
+                    const element = $form.elements[i];
+                    if (element.type !== 'button' && element.type !== 'reset') {
+                        if (element.type === 'checkbox' || element.type === 'radio') {
+                            const storedValue = localStorage.getItem(element.name + '_' + element.value);
+                            if (storedValue !== null) {
+                                element.checked = storedValue === 'true';
+                            }
+                        } else {
+                            const storedValue = localStorage.getItem(element.name);
+                            if (storedValue !== null) {
+                                element.value = storedValue;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Function to clear form data from localStorage
+            function clearForm() {
+                localStorage.clear();
+            }
+
+            // Load form data when the page is loaded
+            window.addEventListener('load', loadFormData);
+            loadFormData();
+
+            // Save form data when any input field changes
+            $form.addEventListener('input', saveFormData);
+        })();
+    </script>
+
+</body>
+
+</html>

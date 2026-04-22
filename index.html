@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <title>Interaktiver Medien + User Unterface | WiSe 2025</title>
+    <meta charset="utf-8">
+    <link rel="icon" href="_assets/favicon.png" type="image/ico">
+    <link rel="icon" href="_assets/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        @import url('_assets/base.css');
+
+        body {
+            overflow: hidden;
+        }
+
+        sup {
+            font-size: .66em;
+            font-weight: bolder;
+        }
+
+        main {
+            width: 100%;
+            height: 100vh;
+
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        a {
+            color: var(--primary);
+        }
+
+        .logo {
+            width: 80rem;
+            height: 80rem;
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            flex: 0 0 auto;
+            background-image: url(_assets/hsrm-visual.svg);
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        iframe.site {
+            border: none;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .site-nav {
+            /*background-color: var(--dark);*/
+            color: var(--light);
+            position: fixed;
+            top: 50%;
+            right: 0;
+            padding: 1rem 0 1rem 2rem;
+            display: flex;
+            flex-direction: column;
+            width: 13em;
+            transform: translate(1px, -50%);
+            justify-content: flex-end;
+            transition: right ease-in-out .5s;
+
+            h2 {
+                color: var(--light);
+            }
+        }
+
+        .site-nav:not(:hover):not(.open) {
+            right: -12rem;
+            transition: right ease-in-out .3s;
+        }
+
+        .site-nav::before,
+        .site-nav::after {
+            content: '';
+            display: block;
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--dark);
+            transform-origin: 0 0;
+            transform: skewY(25deg);
+            border-radius: 1.3rem 0 0 1.3rem;
+        }
+
+        .site-nav::after {
+
+            transform: skewY(-25deg);
+        }
+
+        .site-nav>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .site-nav h2 {
+            margin: 0 0 .5rem;
+            line-height: 1.1;
+            padding: 0;
+            font-size: 1.2rem;
+        }
+
+        .site-nav a {
+            color: var(--light);
+            text-decoration: none;
+            margin: .6em 0;
+            display: block;
+        }
+
+        .site-nav a:hover {
+            text-decoration: underline;
+            text-decoration-color: var(--primary);
+        }
+
+        .site-nav a.active {
+            color: var(--primary);
+        }
+
+        .site-nav li a[data-group="A"]:hover {
+            text-decoration-color: var(--secondary);
+        }
+
+
+        .site-nav li a[data-group="A"].active {
+            color: var(--secondary);
+        }
+
+        .site-nav ul {
+            padding: 0;
+            list-style: none;
+            flex: 1 1 auto;
+            overflow: auto;
+        }
+
+        .site-title {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script type="text/handlebars" data-handlebars-id="view" data-data='{"home":true}'>
+        {{#if path}}
+            <iframe src="{{path}}" title="{{sitename}}" class="site"></iframe>
+        {{else}}
+            <main class="home">
+
+                <div class="logo logo-off">
+
+                </div>
+
+            </main>
+        {{/if}}
+    </script>
+
+    <script type="text/json" data-json-id="main-nav">
+        {
+            "title": "<span class='primary'>Interaktive&nbsp;Medien</span> +&nbsp;<span class='secondary'>User Interface</span><div class='tertiary'>WiSe25</div>",
+            "sites": [{
+                    "sitename": "Heart:tistry",
+                    "siteno": "01",
+                    "path": "./01/"
+                },
+                {
+                    "sitename": "Meet&Sip",
+                    "siteno": "02",
+                    "path": "./02/"
+                },
+                {
+                    "sitename": "Freu Dich Box",
+                    "siteno": "03",
+                    "path": "./03/"
+                },
+                {
+                    "sitename": "prona",
+                    "siteno": "04",
+                    "path": "./04/"
+                },
+                {
+                    "sitename": "WiskTakers",
+                    "siteno": "05",
+                    "path": "./05/"
+                },
+                {
+                    "sitename": "Flow Shot",
+                    "siteno": "06",
+                    "path": "./06/"
+                },
+                {
+                    "sitename": "Zenband",
+                    "siteno": "07",
+                    "path": "./07/"
+                },
+                {
+                    "sitename": "Brotzeit",
+                    "siteno": "08",
+                    "path": "./08/"
+                },
+                {
+                    "sitename": "Calm Coffee",
+                    "siteno": "09",
+                    "path": "./09/"
+                },
+                {
+                    "sitename": "Activ Boost",
+                    "siteno": "10",
+                    "path": "./10/"
+                },{},{
+                    "sitename": "Workshops",
+                    "siteno": "🛠️",
+                    "target": "_blank",
+                    "path": "./workshop/"
+                },{
+                    "hidden": true,
+                    "sitename": "Beispielseite",
+                    "siteno": "🐿️",
+                    "target": "_blank",
+                    "path": "https://github.com/hsrm-medialab/hsrm-imui-2025ss-00/"
+                },{
+                    "hidden": true,
+                    "sitename": "Examples",
+                    "siteno": "✨",
+                    "path": "./_examples/"
+                },{
+                    "sitename": "Map-Server",
+                    "siteno": "🌍",
+                    "path": "https://tiles.rheinmain-interactive.de/"
+                },{
+                    "hidden": true,
+                    "sitename": "Discord",
+                    "siteno": "💬",
+                    "target": "_blank",
+                    "path": "https://discord.gg/awvye8US"
+                },{
+                    "sitename": "Checkliste",
+                    "siteno": "🚀",
+                    "target": "_blank",
+                    "path": "./qs-checklist.html"
+                }
+            ]
+        }
+    </script>
+    <script type="text/handlebars" data-handlebars-id="main-nav" data-json-id="main-nav">
+<nav class="site-nav">
+    <h2 class="site-title">{{{title}}}</h2>
+    <ul>
+        {{#sites}}{{#unless hidden}}
+        <li><a href="{{path}}" class="site-link" target="{{target}}" data-no="{{siteno}}"><b class="secondary">{{siteno}}</b> {{{sitename}}}</a></li>
+        {{/unless}}{{/sites}}
+    </ul>
+</nav>
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script>
+        $(function () {
+
+            var groupStr = window.location.hash.split('#').pop();
+
+            var jsonData = (function () {
+                var a = [];
+                a.byId = {};
+
+                $('script[type="text/json"]').each(function () {
+                    var data = {
+                        $ob: $(this)
+                    };
+                    data.ob = data.$ob[0];
+                    data.str = data.ob.innerHTML.trim();
+                    data.id = data.$ob.attr('data-json-id');
+                    data.data = JSON.parse(data.str);
+
+                    if (data.id) a.byId[data.id] = data;
+                    a.push(data);
+                });
+
+                return a;
+            })();
+
+            var handlebarTemplates = (function () {
+                var a = [];
+                a.byId = {};
+
+                $('script[type="text/handlebars"]').each(function () {
+                    var hb = {
+                        $ob: $(this)
+                    };
+                    hb.$instance = hb.$ob;
+                    hb.ob = hb.$ob[0];
+                    hb.str = hb.ob.innerHTML.trim();
+                    hb.id = hb.$ob.attr('data-handlebars-id');
+                    hb.Template = Handlebars.compile(hb.str);
+                    hb.update = function (data) {
+                        var $oldInstance = hb.$instance;
+                        hb.$instance = $(hb.Template(data).trim());
+
+                        $oldInstance.replaceWith(hb.$instance);
+                    };
+
+                    if (hb.id) a.byId[hb.id] = hb;
+                    a.push(hb);
+
+                    var data = hb.$ob.attr('data-data')
+                    if (data) {
+                        hb.update(JSON.parse(data));
+                    } else {
+                        data = jsonData.byId[hb.$ob.attr('data-json-id')];
+                        if (data) hb.update(data.data);
+                    }
+                });
+
+                return a;
+            })();
+
+            var $siteLinks = $('.site-link:not([target="_blank"]), .site-title').click(function (e) {
+                e.preventDefault();
+                $('.site-nav').removeClass('open');
+
+                $siteLinks.removeClass('active');
+                $(this).addClass('active');
+
+                handlebarTemplates.byId['view'].update({
+                    path: this.href,
+                    title: $(this).text()
+                });
+            });
+
+
+            setTimeout(function () {
+                $('.logo').removeClass('logo-off');
+            }, 2000);
+
+            setTimeout(function () {
+                $('.site-nav').addClass('open');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

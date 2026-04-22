@@ -1,0 +1,5 @@
+AuthUserFile /www/htdocs/w01c627a/kimpim/25SS/.htpasswd
+AuthGroupFile /dev/null
+AuthName 'Bitte http-Zugangsdaten für den KIMPIM-Testserver eingeben'
+AuthType Basic
+require valid-user

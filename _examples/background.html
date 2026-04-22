@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background-Test</title>
+
+    <style>
+        @import url('../_assets/base.css');
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap');
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: var(--dark);
+            color: var(--tertiary);
+
+            h1 {
+                font-family: 'Raleway', sans-serif;
+                --c1: var(--secondary);
+                --c2: var(--primary-d);
+                font-weight: 900;
+                line-height: 1;
+
+                max-width: calc(100% - 4em);
+                font-size: clamp(22px, 8vw, 100px);
+                text-align: center;
+                background-size: 2em 2em;
+                background-color: var(--secondary);
+                background-image: repeating-linear-gradient(-45deg,
+                        transparent 0, transparent .15ex,
+                        var(--c2) .15ex, var(--c2) .25ex,
+                        transparent .25ex, transparent .3ex,
+                        var(--c1) .3ex, var(--c1) .7ex,
+                        transparent .7ex, transparent .75ex,
+                        var(--c2) .75ex, var(--c2) .85ex,
+                        transparent .85ex, transparent 1ex),
+
+                    repeating-linear-gradient(45deg,
+                        transparent 0, transparent .15ex,
+                        var(--c1) .15ex, var(--c1) .25ex,
+                        transparent .25ex, transparent .3ex,
+                        var(--c2) .3ex, var(--c2) .7ex,
+                        transparent .7ex, transparent .75ex,
+                        var(--c1) .75ex, var(--c1) .85ex,
+                        transparent .85ex, transparent 1ex);
+                color: #0000;
+                text-transform: uppercase;
+                background-blend-mode: hard-light, hard-light;
+                /*
+                background:
+                    linear-gradient(-90deg, var(--primary) 1em, #0000 0) 2em 0;
+*/
+                background-size: 100%;
+                background-clip: text;
+
+                background-repeat: no-repeat;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Every man dies, not every man truly lives.</h1>
+</body>
+
+</html>

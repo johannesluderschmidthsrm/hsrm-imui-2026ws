@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Flama';
+    font-weight: 400;
+    src: url('Flama-Basic.woff') format("woff"),
+        url('Flama-Basic.eot');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Flama';
+    font-weight: 600;
+    src: url('Flama-Medium.woff') format("woff"), 
+        url('Flama-Medium.eot');
+    font-display: swap;
+}

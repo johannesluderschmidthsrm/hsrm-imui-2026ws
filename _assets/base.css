@@ -1,0 +1,61 @@
+@import url('fonts/flama.css');
+
+:root {
+    --primary: #e20613;
+    --primary-d: #53050a;
+    --secondary: #a51f5e;
+    --secondary-d: #530d2e;
+    --tertiary: #b0aca9;
+    --tertiary-d: #68584b;
+    --dark: #272420;
+    --light: #f1ede9;
+    --white: #FFF;
+}
+
+html,
+body {
+    font-family: "Flama", sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+    color: var(--secondary);
+}
+
+.primary {
+    color: var(--primary);
+}
+.secondary {
+    color: var(--secondary);
+}
+.tertiary {
+    color: var(--tertiary);
+}
+
+.bg, [class*="bg-"]{
+    background-color: var(--dark);
+    color: var(--light);
+}
+.bg-primary {
+    background-color: var(--primary);
+}
+.bg-secondary {
+    background-color: var(--secondary);
+}
+.bg-tertiary {
+    background-color: var(--tertiary);
+}
