@@ -1,7 +1,7 @@
-# Test-Server des KIM-PIM Kurses Sommersemester 2025
+# Test-Server des IMUI-Kurses Wintersemester 2026/27
 
 * Unterverzeichnisse <code>/1/</code> bis <code>/4/</code> für die jeweiligen Studierenden-Teams
-* Automatisches Deployment auf den Webserver [im25ss.rheinmain-interaktiv.de](http://im25ss.rheinmain-interaktiv.de/)
+* Automatisches Deployment auf den Webserver [im26ws.rheinmain-interaktiv.de](http://im26ws.rheinmain-interaktiv.de/)
 
 [<img alt="Deployed with FTP Deploy Action" src="https://img.shields.io/badge/Deployed With-FTP DEPLOY ACTION-%3CCOLOR%3E?style=for-the-badge&color=2b9348">](https://github.com/SamKirkland/FTP-Deploy-Action)
 

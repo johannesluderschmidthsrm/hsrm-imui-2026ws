@@ -1,4 +1,4 @@
-AuthUserFile /www/htdocs/w01c627a/tup/26SS/.htpasswd
+AuthUserFile /www/htdocs/w01c627a/tup/26WS/.htpasswd
 AuthGroupFile /dev/null
 AuthName 'Bitte http-Zugangsdaten für den IMUI-Testserver eingeben'
 AuthType Basic
